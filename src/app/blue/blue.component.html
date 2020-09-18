@@ -1,0 +1,6 @@
+<section [ngStyle]="{borderColor: title}" >
+  <h2 [ngStyle]="{color: title}" >{{ title }} Component</h2>
+  <div>
+    <app-orange [childTitle]="childrenComponentName" *ngFor="let child of [].constructor(2); let i = index" [index]="i" [ngClass]="childrenComponentName + '-section'"></app-orange>
+  </div>
+</section>

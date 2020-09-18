@@ -1,0 +1,40 @@
+<section [ngStyle]="{borderColor: title}">
+  <div class="header-red">
+    <h2 [ngStyle]="{color: title}" >{{ title }} Component</h2>
+    <p (click)="addTask()">Add a task</p>
+  </div>
+  <div class="tasks-container">
+    <app-task *ngFor="let task of taskList; let index = index" [task]="task"
+      (deleteTask)="deleteTask($event)"
+    >
+    </app-task>
+  </div>
+</section>
+<style>
+  .header-red {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .header-red p {
+    border: 1px solid red;
+    padding:1rem;
+    border-radius:5px;
+    cursor: pointer;
+
+  }
+
+  .header-red p:active {
+    background-color: red;
+    color:white;
+  }
+  .tasks-container {
+    display:flex;
+    justify-content: space-around;
+    align-items: start;
+    max-height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+</style>
